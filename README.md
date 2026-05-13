@@ -1,2 +1,7 @@
-# sales-management-editor
-Sales management screenshot editor
+# 売上管理エディタ
+
+社内共有用の売上管理スクリーンショット作成ツールです。
+
+- 右側で項目名、件数、金額、色を編集
+- 左側のプレビューに即時反映
+- スクリーンショット保存ボタンで左側だけをPNG保存
