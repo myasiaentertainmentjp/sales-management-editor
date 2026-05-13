@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>売上管理エディタ</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="preview-card" aria-label="売上管理プレビュー">
+        <div class="preview-scale" id="captureArea">
+          <div class="shot-top-space" aria-hidden="true"></div>
+          <section class="screen">
+            <nav class="period-tabs" aria-label="期間">
+              <button class="icon-button back-tab" type="button" aria-label="前へ">
+                <span></span>
+              </button>
+              <button class="period-tab" type="button" data-label="今日" data-display="今日">今日</button>
+              <button class="period-tab" type="button" data-label="昨日" data-display="昨日">昨日</button>
+              <button class="period-tab" type="button" data-label="一昨日" data-display="一昨日">一昨日</button>
+              <button class="period-tab active" type="button" data-label="2026/03" data-display="2026年03月">2026/03</button>
+              <button class="period-tab" type="button" data-label="2026/02" data-display="2026年02月">2026/02</button>
+              <button class="icon-button next-tab" type="button" aria-label="次へ">
+                <span></span>
+              </button>
+            </nav>
+
+            <div class="free-toggle-row">
+              <label class="toggle-copy" for="hideFree">無料プランを非表示中</label>
+              <input id="hideFree" class="toggle-input" type="checkbox" checked />
+              <span class="toggle-visual" aria-hidden="true"></span>
+            </div>
+
+            <section class="sales-view">
+              <p class="period-label" id="periodLabel">2026年03月</p>
+
+              <div class="donut-wrap" aria-live="polite">
+                <div class="donut" id="donutChart"></div>
+                <div class="donut-hole">
+                  <span>合計</span>
+                  <strong id="totalAmount">¥110,547</strong>
+                </div>
+              </div>
+
+              <div class="legend-list" id="legendList"></div>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <section class="editor-panel" aria-label="編集">
+        <div class="editor-grid" id="editorGrid"></div>
+        <button class="add-category" type="button" id="addCategory">+ カテゴリを追加</button>
+        <button class="save-shot" type="button" id="saveButton">スクリーンショットを保存</button>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
