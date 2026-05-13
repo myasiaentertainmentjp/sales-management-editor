@@ -172,14 +172,29 @@ function escapeAttribute(value) {
 async function savePreviewImage() {
   const canvas = document.createElement("canvas");
   canvas.width = 870;
-  canvas.height = 1882;
+  canvas.height = 982;
   const context = canvas.getContext("2d");
-  drawPreview(context);
+  drawSavedPreview(context);
 
   const link = document.createElement("a");
   link.download = `sales-management-${state.label.replaceAll("/", "-")}.png`;
   link.href = canvas.toDataURL("image/png");
   link.click();
+}
+
+function drawSavedPreview(ctx) {
+  ctx.clearRect(0, 0, 870, 982);
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(0, 0, 870, 982);
+
+  ctx.save();
+  ctx.translate(0, -464);
+  drawLine(ctx, 0, 464, 870, 464, "#d8d8d8", 1);
+  drawLine(ctx, 0, 554, 870, 554, "#eeeeee", 1);
+  drawTabs(ctx);
+  drawToggle(ctx);
+  drawSalesContent(ctx);
+  ctx.restore();
 }
 
 function drawPreview(ctx) {
